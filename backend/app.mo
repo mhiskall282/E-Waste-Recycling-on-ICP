@@ -27,7 +27,7 @@ actor {
 
   stable var devices : [Device] = [];
 
-  public func registerDevice(id : Text, model : Text) : async Text {
+  public shared(msg) func registerDevice(id : Text, model : Text) : async Text {
     let device = {
       id = id;
       model = model;
@@ -64,5 +64,3 @@ actor {
     Array.filter<Device>(devices, func(d) { d.owner == user })
   };
 }
-
-
